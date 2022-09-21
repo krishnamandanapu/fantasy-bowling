@@ -4,4 +4,3 @@ Test file for cloning and pushing (put name into this file and push):
 -Aravind Kommineni
 -Samarasimha Reddy Mamidi
 -Rithik Theddu
--Ibrahim Skouti
