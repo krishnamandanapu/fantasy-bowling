@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class pinSpawner : MonoBehaviour
 {
+    private GameObject[] pins = new GameObject[16];
+
     private float x_shift = (float)-0.44;
     private float z_shift = 1;
 
@@ -12,11 +14,8 @@ public class pinSpawner : MonoBehaviour
     public float[][] xs = new float[4][];
     public float[][] zs = new float[4][];
     public bool[][] bools = new bool[4][];
-<<<<<<< HEAD:Fantasy Bowling/Assets/Scripts/pinSpawner.cs
     public Transform pos;
-=======
     public int[][] pinTypes = new int[4][];
->>>>>>> Ib-pins:tutorial1/Assets/Scripts/pinSpawner.cs
 
     //[SerializeField]
     public GameObject NormalPinPrefab;//1
@@ -30,13 +29,28 @@ public class pinSpawner : MonoBehaviour
 
     void Start()
     {
+        Spawn();
+    }
+
+    public void Spawn()
+    {
+        for (int i = 0; i < 16; i++)
+        {
+            if (pins[i] == null)
+            {
+                continue;
+            }
+
+            Destroy(pins[i]);
+        }
+
         //initlize the x's
         for (int i = 0; i < 4; i++)
         {
             xs[i] = new float[4];
             for (int j = 0; j < 4; j++)
             {
-                //just small bullshit
+                //just small stuff
                 float indent = 0;
                 if (i % 2 != 0 && formation != 2 && formation != 3) { indent = (float)0.1; } //if rows 1 or 3 (not 0 or 2)
                 xs[i][j] = (float)((indent + (0.2 * j)));
@@ -153,6 +167,8 @@ public class pinSpawner : MonoBehaviour
 
         Debug.Log("problem yet?");
 
+        int count = 0;
+
         //spawn time
         for (int i = 0; i < 4; i++)
         {
@@ -162,14 +178,34 @@ public class pinSpawner : MonoBehaviour
                 Vector3 curr_pos = new Vector3(pos.position.x + xs[i][j] + x_shift, pos.position.y + (float)0.19, (pos.position.z / 4) + zs[i][j] + z_shift);
                 //Debug.Log("Hello: " + curr_pos);
                 GameObject curr_type = objTypes[pinTypes[i][j]-1];
-                Instantiate(curr_type, curr_pos, Quaternion.identity);
+                pins[count] = Instantiate(curr_type, curr_pos, Quaternion.identity);
+                count++;
             }
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void flipNormalPin()
     {
+        NormalPinsBool = !NormalPinsBool;
+    }
 
+    public void setFormationType(int index)
+    {
+        formation = index + 1;
+    }
+
+    public void flipMetalPin()
+    {
+        MetalPinsBool = !MetalPinsBool;
+    }
+
+    public void flipMagicPin()
+    {
+        MagicPinsBool = !MagicPinsBool;
+    }
+
+    public void flipBombPin()
+    {
+        BombPinsBool = !BombPinsBool;
     }
 }
