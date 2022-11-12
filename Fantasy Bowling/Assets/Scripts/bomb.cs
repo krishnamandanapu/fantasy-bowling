@@ -9,8 +9,8 @@ public class bomb : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-       if (other.gameObject.name == "Sphere")
-       {
+       if (other.gameObject.tag != "Floor")
+        {
             GameObject _exp = Instantiate(exp, transform.position, transform.rotation);
             Destroy(_exp, 3);
             Destroy(gameObject);

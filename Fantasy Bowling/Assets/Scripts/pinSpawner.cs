@@ -6,13 +6,14 @@ public class pinSpawner : MonoBehaviour
 {
     // Start is called before the first frame update
     private float x_shift = (float)-0.44;
-    private float z_shift = 8;
+    private float z_shift = 1;
 
     public int formation = 2;
 
     public float[][] xs = new float[4][];
     public float[][] zs = new float[4][];
     public bool[][] bools = new bool[4][];
+    public Transform pos;
 
     //[SerializeField]
     public GameObject pinPrefab;
@@ -109,7 +110,7 @@ public class pinSpawner : MonoBehaviour
             for (int j = 0; j < 4; j++)
             {
                 if (bools[i][j] == false) { continue; }
-                Vector3 curr_pos = new Vector3(xs[i][j] + x_shift, (float)0.19, zs[i][j] + z_shift);
+                Vector3 curr_pos = new Vector3(pos.position.x + xs[i][j] + x_shift, pos.position.y + (float)0.19, (pos.position.z / 4) + zs[i][j] + z_shift);
                 //Debug.Log("Hello: " + curr_pos);
                 Instantiate(pinPrefab, curr_pos, Quaternion.identity);
             }

@@ -13,7 +13,7 @@ public class magic : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.name == "Sphere")
+        if (other.gameObject.tag != "Floor")
         {
             GameObject _exp = Instantiate(exp, transform.position, transform.rotation);
             Destroy(_exp, (float)0.5);
