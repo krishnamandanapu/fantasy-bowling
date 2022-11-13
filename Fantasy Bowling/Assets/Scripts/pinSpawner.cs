@@ -6,7 +6,7 @@ public class pinSpawner : MonoBehaviour
 {
     private GameObject[] pins = new GameObject[16];
 
-    private float x_shift = (float)-0.44;
+    private float x_shift = (float) -0.445;
     private float z_shift = 1;
 
     public int formation = 1;
@@ -70,6 +70,8 @@ public class pinSpawner : MonoBehaviour
         //1.normal
         if (formation == 1)
         {
+            x_shift = (float)-0.445;
+            z_shift = 1;
             bools[0] = new bool[] { false, false, true, false };
             bools[1] = new bool[] { false, true, true, false };
             bools[2] = new bool[] { false, true, true, true };
@@ -79,6 +81,8 @@ public class pinSpawner : MonoBehaviour
         //2.circle
         if (formation == 2)
         {
+            x_shift = (float) -0.35;
+            z_shift = (float) 1.15;
             bools[0] = new bool[] { false, true, true, false };
             bools[1] = new bool[] { true, true, true, true };
             bools[2] = new bool[] { true, true, true, true };
@@ -88,6 +92,9 @@ public class pinSpawner : MonoBehaviour
         //3.square
         if (formation == 3)
         {
+            x_shift = (float) -0.35;
+            z_shift = (float) 1.15;
+
             for (int i = 0; i < 4; i++)
             {
                 bools[i] = new bool[4];
@@ -101,6 +108,9 @@ public class pinSpawner : MonoBehaviour
         //4.upside pyramid
         if (formation == 4)
         {
+            x_shift = (float) -0.345;
+            z_shift = (float) 1.15;
+
             bools[0] = new bool[] { true, true, true, true };
             bools[1] = new bool[] { true, true, true, false };
             bools[2] = new bool[] { false, true, true, false };
@@ -110,7 +120,9 @@ public class pinSpawner : MonoBehaviour
         //5.Horizontal line
         if (formation == 5)
         {
-            bools[0] = new bool[] { false, false, false, false };
+            x_shift = (float) -0.445;
+            z_shift = 1;
+    bools[0] = new bool[] { false, false, false, false };
             bools[1] = new bool[] { false, false, false, false };
             bools[2] = new bool[] { false, false, false, false };
             bools[3] = new bool[] { true, true, true, true };
@@ -119,6 +131,8 @@ public class pinSpawner : MonoBehaviour
         //6.single
         if (formation == 6)
         {
+            x_shift = (float) -0.44;
+            z_shift = (float) 1.25;
             bools[0] = new bool[] { false, false, true, false };
             bools[1] = new bool[] { false, false, false, false };
             bools[2] = new bool[] { false, false, false, false };
@@ -128,6 +142,8 @@ public class pinSpawner : MonoBehaviour
         //7.vertical line
         if (formation == 7)
         {
+            x_shift = (float) -0.295;
+            z_shift = 1;
             bools[0] = new bool[] { false, true, false, false };
             bools[1] = new bool[] { false, true, false, false };
             bools[2] = new bool[] { false, true, false, false };
@@ -141,7 +157,7 @@ public class pinSpawner : MonoBehaviour
         if (MetalPinsBool) {variants++;}
         if (MagicPinsBool) {variants++;}
         if (BombPinsBool) {variants++;}
-        Debug.Log("variants count: " + variants);
+        //Debug.Log("variants count: " + variants);
         //make options array
         int[] typeOptions = new int[variants];
         GameObject[] objTypes = {NormalPinPrefab, MetalPinPrefab, MagicPinPrefab, BombPinPrefab};
@@ -151,10 +167,10 @@ public class pinSpawner : MonoBehaviour
         if (MagicPinsBool) {typeOptions[index] = 3; index++;}
         if (BombPinsBool) {typeOptions[index] = 4; index++;}
         //print selected options
-        Debug.Log("Pins...");
-        for (int j = 0; j < index; j++) { 
+        //Debug.Log("Pins...");
+        /*for (int j = 0; j < index; j++) { 
             Debug.Log(typeOptions[j]);
-        }
+        }*/
         //randomize selection
         System.Random random = new System.Random();
         for (int i = 0; i < 4; i++){
@@ -165,7 +181,7 @@ public class pinSpawner : MonoBehaviour
             }
         }
 
-        Debug.Log("problem yet?");
+        //Debug.Log("problem yet?");
 
         int count = 0;
 
