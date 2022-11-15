@@ -26,12 +26,4 @@ public class Ball : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))//Input.GetKeyDown(KeyCode.Return)
              rb.AddForce(Vector3.forward * power);
     }
-
-    private void OnCollisionEnter(Collision col)
-    {
-        if (col.gameObject.name == "WaterPin(Clone)")
-        {
-            Destroy(col.gameObject);
-        }
-    }
 }

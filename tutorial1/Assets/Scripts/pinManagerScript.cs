@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pinSpawner : MonoBehaviour
+public class pinManagerScript : MonoBehaviour
 {
     private float x_shift = (float)-0.44;
     private float z_shift = 8;
@@ -23,6 +23,11 @@ public class pinSpawner : MonoBehaviour
     public bool MetalPinsBool;
     public bool MagicPinsBool;
     public bool BombPinsBool;
+
+
+
+    int Dissapearing_pins_count;
+    GameObject[] NonDissapearing_pins;
 
     void Start()
     {
@@ -123,7 +128,7 @@ public class pinSpawner : MonoBehaviour
         if (MetalPinsBool) {variants++;}
         if (MagicPinsBool) {variants++;}
         if (BombPinsBool) {variants++;}
-        Debug.Log("variants count: " + variants);
+        //Debug.Log("variants count: " + variants);
         //make options array
         int[] typeOptions = new int[variants];
         GameObject[] objTypes = {NormalPinPrefab, MetalPinPrefab, MagicPinPrefab, BombPinPrefab};
@@ -133,9 +138,9 @@ public class pinSpawner : MonoBehaviour
         if (MagicPinsBool) {typeOptions[index] = 3; index++;}
         if (BombPinsBool) {typeOptions[index] = 4; index++;}
         //print selected options
-        Debug.Log("Pins...");
+        //Debug.Log("Pins...");
         for (int j = 0; j < index; j++) { 
-            Debug.Log(typeOptions[j]);
+            //Debug.Log(typeOptions[j]);
         }
         //randomize selection
         System.Random random = new System.Random();
@@ -147,8 +152,6 @@ public class pinSpawner : MonoBehaviour
             }
         }
 
-        Debug.Log("problem yet?");
-
         //spawn time
         for (int i = 0; i < 4; i++)
         {
@@ -159,13 +162,48 @@ public class pinSpawner : MonoBehaviour
                 //Debug.Log("Hello: " + curr_pos);
                 GameObject curr_type = objTypes[pinTypes[i][j]-1];
                 Instantiate(curr_type, curr_pos, Quaternion.identity);
+
+                //if its a bomb
+                //curr_type.GetComponent<bombPinScript>().setUp(i, j);
             }
         }
+        Dissapearing_pins_count = GameObject.FindGameObjectsWithTag("Dissapearing").Length;
+        NonDissapearing_pins = GameObject.FindGameObjectsWithTag("NonDissapearing");
+        Debug.Log("NonDissapearing_pins count: " + NonDissapearing_pins.Length);
     }
 
-    // Update is called once per frame
+    /*
+    public void UpdateScoreAndFormation(int i, int j)
+    {
+        //roundScore++;
+        bools[i][j] = false;
+        //Debug.Log("roundScore: " + roundScore);
+    }
+    */
+
+
+    void CountPinsDown()
+    {
+        int score = 0;
+        for (int i = 0; i < NonDissapearing_pins.Length; i++)
+        {
+            if (
+                ((NonDissapearing_pins[i].transform.eulerAngles.z > 5 && NonDissapearing_pins[i].transform.eulerAngles.z < 355) || (NonDissapearing_pins[i].transform.position.y < 0))
+                    && NonDissapearing_pins[i].activeSelf)
+            {
+                score++;
+                NonDissapearing_pins[i].SetActive(false);
+            }
+        }
+        score += Dissapearing_pins_count - GameObject.FindGameObjectsWithTag("Dissapearing").Length;
+        Debug.Log("Score: " + score);
+    }
+
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            CountPinsDown();
+        }
     }
 }

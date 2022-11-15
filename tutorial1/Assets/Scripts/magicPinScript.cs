@@ -2,14 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class magic : MonoBehaviour
+public class magicPinScript : MonoBehaviour
 {
     public GameObject exp;
-
-    void Start()
-    {
-        
-    }
 
     private void OnCollisionEnter(Collision other)
     {

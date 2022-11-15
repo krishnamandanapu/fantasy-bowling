@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 1083165396}
   - component: {fileID: 1083165395}
   m_Layer: 0
-  m_Name: PinSpawner2
+  m_Name: PinSpawnerObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -345,12 +345,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f45f9121e861d4b8dfc2acf74d22a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  formation: 1
+  formation: 7
   NormalPinPrefab: {fileID: 3538645635108257333, guid: 5e623f2b763d0fa4ba1e0558adaf9eed, type: 3}
   MetalPinPrefab: {fileID: 8950099668212978423, guid: dff9cb4105461394cb4451f91b3573d1, type: 3}
   MagicPinPrefab: {fileID: 8915694778634529227, guid: a34faa011c20c5f4f99127172f6c8c49, type: 3}
   BombPinPrefab: {fileID: 5212109990852765278, guid: e4cd408914412c440a7d56584494efcb, type: 3}
-  NormalPinsBool: 1
+  NormalPinsBool: 0
   MetalPinsBool: 1
   MagicPinsBool: 1
   BombPinsBool: 1

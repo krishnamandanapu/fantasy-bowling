@@ -2,10 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bomb : MonoBehaviour
+public class bombPinScript : MonoBehaviour
 {
     public GameObject exp;
     public float expForce, radius;
+
+    /*
+    private GameObject pinSpawnerRef;
+    private int my_i, my_j;
+    */
+
+    /*
+    public void setUp(int i, int j)
+    {
+        //Debug.Log("yoo");
+        pinSpawnerRef = GameObject.Find("PinSpawnerObj");
+        my_i = i;
+        my_j = j;
+        Debug.Log("my_i:" + my_i + ",my_j:" + my_j);
+        Debug.Log("pinSpawnerRef: " + pinSpawnerRef);
+    }
+    */
 
     private void OnCollisionEnter(Collision other)
     {
@@ -26,6 +43,9 @@ public class bomb : MonoBehaviour
                 rigg.AddExplosionForce(expForce, transform.position, radius);
             }
         }
+
+            //Debug.Log("pinSpawnerRef: " + pinSpawnerRef);
+            //this.pinSpawnerRef.GetComponent<pinManagerScript>().UpdateScoreAndFormation(my_i, my_j);
         }
     }
 }
