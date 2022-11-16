@@ -169,7 +169,7 @@ public class pinManagerScript : MonoBehaviour
         }
         Dissapearing_pins_count = GameObject.FindGameObjectsWithTag("Dissapearing").Length;
         NonDissapearing_pins = GameObject.FindGameObjectsWithTag("NonDissapearing");
-        Debug.Log("NonDissapearing_pins count: " + NonDissapearing_pins.Length);
+        //Debug.Log("NonDissapearing_pins count: " + NonDissapearing_pins.Length);
     }
 
     /*
@@ -196,7 +196,7 @@ public class pinManagerScript : MonoBehaviour
             }
         }
         score += Dissapearing_pins_count - GameObject.FindGameObjectsWithTag("Dissapearing").Length;
-        Debug.Log("Score: " + score);
+        //Debug.Log("Score: " + score);
     }
 
     void Update()
