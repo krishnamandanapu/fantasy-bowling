@@ -5,8 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - FxTemporaire
+<<<<<<< HEAD:Fantasy Bowling/ProjectSettings/TagManager.asset
   - Floor
   - Back
+=======
+  - Dissapearing
+  - NonDissapearing
+>>>>>>> Ib-pins:tutorial1/ProjectSettings/TagManager.asset
   layers:
   - Default
   - TransparentFX
