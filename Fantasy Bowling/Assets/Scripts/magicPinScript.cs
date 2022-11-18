@@ -8,7 +8,17 @@ public class magicPinScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag != "Floor")
+        if (other.gameObject.tag != "Podium" && other.gameObject.tag != "Floor")
+        {
+            GameObject _exp = Instantiate(exp, transform.position, transform.rotation);
+            Destroy(_exp, (float)0.5);
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Hand")
         {
             GameObject _exp = Instantiate(exp, transform.position, transform.rotation);
             Destroy(_exp, (float)0.5);

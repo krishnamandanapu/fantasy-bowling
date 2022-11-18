@@ -127,7 +127,7 @@ public class pinManagerScript : MonoBehaviour
         {
             x_shift = (float) -0.445;
             z_shift = 1;
-    bools[0] = new bool[] { false, false, false, false };
+            bools[0] = new bool[] { false, false, false, false };
             bools[1] = new bool[] { false, false, false, false };
             bools[2] = new bool[] { false, false, false, false };
             bools[3] = new bool[] { true, true, true, true };
@@ -173,15 +173,15 @@ public class pinManagerScript : MonoBehaviour
         if (BombPinsBool) {typeOptions[index] = 4; index++;}
         //print selected options
         //Debug.Log("Pins...");
-<<<<<<< HEAD:Fantasy Bowling/Assets/Scripts/pinSpawner.cs
+
         /*for (int j = 0; j < index; j++) { 
             Debug.Log(typeOptions[j]);
         }*/
-=======
+
         for (int j = 0; j < index; j++) { 
             //Debug.Log(typeOptions[j]);
         }
->>>>>>> Ib-pins:Fantasy Bowling/Assets/Pins/Scripts/pinManagerScript.cs
+
         //randomize selection
         System.Random random = new System.Random();
         for (int i = 0; i < 4; i++){
@@ -192,13 +192,13 @@ public class pinManagerScript : MonoBehaviour
             }
         }
 
-<<<<<<< HEAD:Fantasy Bowling/Assets/Scripts/pinSpawner.cs
+
         //Debug.Log("problem yet?");
 
         int count = 0;
 
-=======
->>>>>>> Ib-pins:Fantasy Bowling/Assets/Pins/Scripts/pinManagerScript.cs
+
+
         //spawn time
         for (int i = 0; i < 4; i++)
         {
@@ -208,15 +208,15 @@ public class pinManagerScript : MonoBehaviour
                 Vector3 curr_pos = new Vector3(pos.position.x + xs[i][j] + x_shift, pos.position.y + (float)0.19, (pos.position.z / 4) + zs[i][j] + z_shift);
                 //Debug.Log("Hello: " + curr_pos);
                 GameObject curr_type = objTypes[pinTypes[i][j]-1];
-<<<<<<< HEAD:Fantasy Bowling/Assets/Scripts/pinSpawner.cs
+
                 pins[count] = Instantiate(curr_type, curr_pos, Quaternion.identity);
                 count++;
-=======
-                Instantiate(curr_type, curr_pos, Quaternion.identity);
+
+                //Instantiate(curr_type, curr_pos, Quaternion.identity);
 
                 //if its a bomb
                 //curr_type.GetComponent<bombPinScript>().setUp(i, j);
->>>>>>> Ib-pins:Fantasy Bowling/Assets/Pins/Scripts/pinManagerScript.cs
+
             }
         }
         Dissapearing_pins_count = GameObject.FindGameObjectsWithTag("Dissapearing").Length;
@@ -224,7 +224,7 @@ public class pinManagerScript : MonoBehaviour
         //Debug.Log("NonDissapearing_pins count: " + NonDissapearing_pins.Length);
     }
 
-<<<<<<< HEAD:Fantasy Bowling/Assets/Scripts/pinSpawner.cs
+
     public void flipNormalPin()
     {
         NormalPinsBool = !NormalPinsBool;
@@ -248,7 +248,8 @@ public class pinManagerScript : MonoBehaviour
     public void flipBombPin()
     {
         BombPinsBool = !BombPinsBool;
-=======
+    }
+
     /*
     public void UpdateScoreAndFormation(int i, int j)
     {
@@ -282,6 +283,6 @@ public class pinManagerScript : MonoBehaviour
         {
             CountPinsDown();
         }
->>>>>>> Ib-pins:Fantasy Bowling/Assets/Pins/Scripts/pinManagerScript.cs
+
     }
 }
