@@ -11,6 +11,9 @@ TagManager:
   - NonDissapearing
   - Ball
   - Podium
+  - FxTemporaire
+  - Left Hand
+  - Right Hand
   layers:
   - Default
   - TransparentFX

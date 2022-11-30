@@ -101,7 +101,7 @@ public class podium : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Hand")
+        if (other.gameObject.tag == "Left Hand" || other.gameObject.tag == "Right Hand")
         {
             respawnFlag = false;
         }
@@ -109,7 +109,7 @@ public class podium : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Hand")
+        if (other.gameObject.tag == "Left Hand" || other.gameObject.tag == "Right Hand")
         {
             respawnFlag = false;
         }
@@ -117,7 +117,7 @@ public class podium : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Hand")
+        if (other.gameObject.tag == "Left Hand" || other.gameObject.tag == "Right Hand")
         {
             respawnFlag = true;
         }

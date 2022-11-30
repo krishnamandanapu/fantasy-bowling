@@ -18,7 +18,7 @@ public class magicPinScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Hand")
+        if (other.gameObject.tag == "Left Hand" || other.gameObject.tag == "Right Hand")
         {
             GameObject _exp = Instantiate(exp, transform.position, transform.rotation);
             Destroy(_exp, (float)0.5);
