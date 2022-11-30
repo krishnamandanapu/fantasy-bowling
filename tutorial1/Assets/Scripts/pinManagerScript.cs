@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class pinManagerScript : MonoBehaviour
 {
     private float x_shift = (float)-0.44;
     private float z_shift = 8;
 
     public int formation = 1;
+
+    //public Text Score_text;
+    //public GameObject Score_text2;
 
     public float[][] xs = new float[4][];
     public float[][] zs = new float[4][];
@@ -196,7 +199,9 @@ public class pinManagerScript : MonoBehaviour
             }
         }
         score += Dissapearing_pins_count - GameObject.FindGameObjectsWithTag("Dissapearing").Length;
-        //Debug.Log("Score: " + score);
+        Debug.Log("Score: " + score);
+        //Score_text.text = "55";
+        //Score_text2.GetComponent<Text>().Text = "55";
     }
 
     void Update()
@@ -207,3 +212,4 @@ public class pinManagerScript : MonoBehaviour
         }
     }
 }
+
