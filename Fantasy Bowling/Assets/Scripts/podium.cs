@@ -10,6 +10,9 @@ public class podium : MonoBehaviour
     public GameObject MetalPinBallPrefab;
     public GameObject MagicPinBallPrefab;
     public GameObject BombPinBallPrefab;
+    public GameObject MetalBallPrefab;
+    public GameObject IceBallPrefab;
+    public GameObject CubeBallPrefab;
     public GameObject effect;
     private GameObject TheObject;
     private GameObject currPrefab;
@@ -48,6 +51,21 @@ public class podium : MonoBehaviour
         {
             currPrefab = BombPinBallPrefab;
         }
+
+        if (ballType == 5)
+        {
+            currPrefab = MetalBallPrefab;
+        }
+
+        if (ballType == 6)
+        {
+            currPrefab = IceBallPrefab;
+        }
+
+        if (ballType == 7)
+        {
+            currPrefab = CubeBallPrefab;
+        }
     } 
 
     public void setBallType(int index)
@@ -82,6 +100,14 @@ public class podium : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Hand")
+        {
+            respawnFlag = false;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Hand")
         {
