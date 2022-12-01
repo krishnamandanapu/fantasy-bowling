@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class pinManagerScript : MonoBehaviour
 {
     private GameObject[] pins = new GameObject[16];
+    private bool allDownFlag = false;
 
     private float x_shift = (float) -0.445;
     private float z_shift = 1;
@@ -42,6 +43,8 @@ public class pinManagerScript : MonoBehaviour
 
     public void Spawn()
     {
+        allDownFlag = false;
+
         for (int i = 0; i < 16; i++)
         {
             if (pins[i] == null)
@@ -270,6 +273,11 @@ public class pinManagerScript : MonoBehaviour
     //figure this out
     public int CountPinsDown()
     {
+        if (allDownFlag)
+        {
+            return countTotalPins();
+        }
+
         int score = 0;
         for (int i = 0; i < NonDissapearing_pins.Length; i++)
         {
@@ -284,10 +292,14 @@ public class pinManagerScript : MonoBehaviour
             {
                 score++;
                 NonDissapearing_pins[i].SetActive(false);
-                NonDissapearing_pins[i] = null;
             }
         }
         score += Dissapearing_pins_count - GameObject.FindGameObjectsWithTag("Dissapearing").Length;
+
+        if (score == countTotalPins())
+        {
+            allDownFlag = true;
+        }
 
         return score;
         //Debug.Log("Score: " + score);

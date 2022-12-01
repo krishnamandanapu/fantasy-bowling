@@ -18,12 +18,11 @@ public class Score_UI : MonoBehaviour
         test = pinManager.GetComponent<pinManagerScript>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateScore()
     {
         if (test == null)
         {
-            text.text = "pinManager is gone";
+            text.text = "pinManager is gone???";
             return;
         }
         int knocked = test.CountPinsDown();
