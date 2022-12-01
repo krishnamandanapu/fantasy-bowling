@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9418524981dc3c943919a27401369ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 8300000, guid: c08e633e6c3d24d4f821f97d602968b8, type: 3}
   exp: {fileID: 100004, guid: b46890100828db6429ff69c322b45893, type: 3}
   expForce: 300
   radius: 6

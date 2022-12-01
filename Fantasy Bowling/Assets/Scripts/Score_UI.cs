@@ -14,20 +14,22 @@ public class Score_UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
-        text.text = "Pins Left:\n10 / 10";
+        text.text = "Total Pins:\n10";
         test = pinManager.GetComponent<pinManagerScript>();
     }
 
-    public void UpdateScore()
+    /*public*/ void Update/*Score*/()
     {
         if (test == null)
         {
             text.text = "pinManager is gone???";
             return;
         }
-        int knocked = test.CountPinsDown();
+        //int knocked = test.CountPinsDown();
         int total = test.countTotalPins();
 
-        text.text = "Pins Left:\n" + (total - knocked).ToString() + " / " + total.ToString();
+        //countPinsDown not working as intended and I'm not sure how to fix it at this point -Gonzalo
+        //text.text = "Pins Left:\n" + (total - knocked).ToString() + " / " + total.ToString();
+        text.text = "Total Pins:\n" + total.ToString();
     }
 }

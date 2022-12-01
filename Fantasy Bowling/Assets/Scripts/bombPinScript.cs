@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class bombPinScript : MonoBehaviour
 {
+    public AudioClip audio;
     public GameObject exp;
     public float expForce, radius;
 
@@ -11,6 +12,7 @@ public class bombPinScript : MonoBehaviour
     {
        if ((this.gameObject.tag == "Ball" && other.gameObject.tag != "Podium"))
         {
+            AudioSource.PlayClipAtPoint(audio, gameObject.transform.position);
             GameObject _exp = Instantiate(exp, transform.position, transform.rotation);
             Destroy(_exp, 3);
             Destroy(gameObject);
@@ -32,6 +34,7 @@ public class bombPinScript : MonoBehaviour
 
        if (other.gameObject.tag != "Floor" && other.gameObject.tag != "Podium")
         {
+            AudioSource.PlayClipAtPoint(audio, gameObject.transform.position);
             GameObject _exp = Instantiate(exp, transform.position, transform.rotation);
             Destroy(_exp, 3);
             Destroy(gameObject);

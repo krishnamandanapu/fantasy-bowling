@@ -22,7 +22,7 @@ public class UpdateScore : MonoBehaviour
             {
                 Destroy(other);
                 timer = 2.5f;
-                temp.UpdateScore();
+                //temp.UpdateScore();
             }
 
             timer -= Time.deltaTime;
@@ -35,7 +35,7 @@ public class UpdateScore : MonoBehaviour
         {
             Destroy(other);
             timer = 2.5f;
-            temp.UpdateScore();
+            //temp.UpdateScore();
         }
     }
 
@@ -44,7 +44,7 @@ public class UpdateScore : MonoBehaviour
         if (checkTimer <= 0.0f)
         {
             checkTimer = 5.0f;
-            temp.UpdateScore();
+            //temp.UpdateScore();
         }
 
         checkTimer -= Time.deltaTime; 

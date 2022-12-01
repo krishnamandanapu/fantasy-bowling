@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exp: {fileID: 100000, guid: be20c243cd4e41e429097cc9d2582925, type: 3}
+  audio: {fileID: 8300000, guid: 14d8a9c6a0cee2a43b05c48e6b3d498d, type: 3}
 --- !u!114 &8046518829701538976
 MonoBehaviour:
   m_ObjectHideFlags: 0
