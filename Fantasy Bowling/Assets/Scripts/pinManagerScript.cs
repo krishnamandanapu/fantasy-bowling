@@ -231,26 +231,31 @@ public class pinManagerScript : MonoBehaviour
     public void flipNormalPin()
     {
         NormalPinsBool = !NormalPinsBool;
+        Spawn();
     }
 
     public void setFormationType(int index)
     {
         formation = index + 1;
+        Spawn();
     }
 
     public void flipMetalPin()
     {
         MetalPinsBool = !MetalPinsBool;
+        Spawn();
     }
 
     public void flipMagicPin()
     {
         MagicPinsBool = !MagicPinsBool;
+        Spawn();
     }
 
     public void flipBombPin()
     {
         BombPinsBool = !BombPinsBool;
+        Spawn();
     }
 
     /*
@@ -262,24 +267,63 @@ public class pinManagerScript : MonoBehaviour
     }
     */
 
-
-    void CountPinsDown()
+    //figure this out
+    public int CountPinsDown()
     {
         int score = 0;
         for (int i = 0; i < NonDissapearing_pins.Length; i++)
         {
+            if (NonDissapearing_pins[i] == null)
+            {
+                continue;
+            }
+
             if (
                 ((NonDissapearing_pins[i].transform.eulerAngles.z > 5 && NonDissapearing_pins[i].transform.eulerAngles.z < 355) || (NonDissapearing_pins[i].transform.position.y < 0))
                     && NonDissapearing_pins[i].activeSelf)
             {
                 score++;
                 NonDissapearing_pins[i].SetActive(false);
+                NonDissapearing_pins[i] = null;
             }
         }
         score += Dissapearing_pins_count - GameObject.FindGameObjectsWithTag("Dissapearing").Length;
-        Debug.Log("Score: " + score);
+
+        return score;
+        //Debug.Log("Score: " + score);
         //Score_text.text = "55";
         //Score_text2.GetComponent<Text>().Text = "55";
+    }
+
+    public int countTotalPins()
+    {
+        if (!NormalPinsBool  && !MetalPinsBool && !MagicPinsBool && !BombPinsBool)
+        {
+            return 0;
+        }
+
+        if (formation == 1 || formation == 4)
+        {
+            return 10;
+        }
+        else if (formation == 2)
+        {
+            return 12;
+        }
+        else if (formation == 3)
+        {
+            return 16;
+        }
+        else if (formation == 5 || formation == 7)
+        {
+            return 4;
+        }
+        else if (formation == 6)
+        {
+            return 1;
+        }
+
+        return -1;
     }
 
     void Update()
